@@ -1,10 +1,17 @@
 'use client'
 import { useState } from "react"
-
+import { useMutation, userQueryClient } from "@tanstack/react-query"
 
 export default function CreatePost(){
   const [title, setTitle] = useState("")
   const [isDisabled, setIsDisabled] = useState(false)
+
+  //CREATE POST
+  const {mutate} = useMutation(
+    
+  )
+
+
   return(
     <form className="bg-white my-8 p-8 rounded-md">
       <div className="flex flex-col my-4">
