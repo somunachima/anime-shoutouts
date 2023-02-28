@@ -12,11 +12,11 @@ export default async function Nav() {
   return (
   <nav className="flex justify-between items-center py-8">
     <Link href={"/"}>
-      <h1 className="font-bold text-lg">Send it.</h1>
+      <h1 className="font-bold text-lg">Anime Shoutouts</h1>
     </Link>
     <ul className="flex items-center gap-6">
       {!session?.user && <Login />}
-      {session?.user && <h1>Welcome {session.user.name} !</h1>}
+      {/* {session?.user && <h1>Welcome {session.user.name} !</h1>} */}
       {session?.user && <Logged image={session.user?.image || ""} />}
     </ul>
   </nav>
