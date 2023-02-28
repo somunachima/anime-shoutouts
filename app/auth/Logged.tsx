@@ -15,9 +15,9 @@ export default function Logged({ image }: User){
 
           <Link href={"/dashboard"}>
             <Image
+              className="w-14 rounded-full"
               width={64}
               height={64}
-              className="w-14 rounded-full"
               src={image}
               alt=""
               priority
