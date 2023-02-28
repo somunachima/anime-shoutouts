@@ -15,7 +15,7 @@ export default async function handler(
     }
 
     const title: string = req.body.title
-    console.log(typeof title)
+    // console.log(typeof title)
 
     //Get User
     const prismaUser = await prisma.user.findUnique({
