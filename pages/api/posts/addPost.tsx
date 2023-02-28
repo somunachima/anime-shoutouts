@@ -14,6 +14,11 @@ export default async function handler(
 
     const title: string = req.body.title
 
+    //Get User
+    const prismaUser = await prisma.user.findUnique({
+        where: {email: session?.user?.email },
+    })
+
     //Check Title
     if (title.length > 300)
     return res.status(403).json({message: "Please write a shorter post. Max 300 characters"})
@@ -25,6 +30,7 @@ export default async function handler(
         const result = await prisma.post.create({
             data: {
                 title,
+                userId: prismaUser.id,
             }
         })
     } catch (err) {
