@@ -1,6 +1,7 @@
 import "./globals.css"
 import Nav from "./auth/Nav"
 import { Montserrat } from "next/font/google"
+import QueryWrapper from "./auth/QueryWrapper"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -17,8 +18,10 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body className={`mx-4 md:mx-48 xl:mx-96 ${montserrat.variable} font-sans bg-gray-200`}>
-        <Nav />
-        {children}
+        <QueryWrapper>
+          <Nav />
+          {children}
+        </QueryWrapper>
       </body>
     </html>
   )
