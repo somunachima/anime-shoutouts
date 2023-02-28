@@ -14,7 +14,10 @@ export default function Post(){
                   src={avatar}
                   alt="avatar"
                 />
-                <h3 className="font-bold text-gray-700"></h3>
+                <h3 className="font-bold text-gray-700">{name}</h3>
+            </div>
+            <div className="my-8">
+              <p className="break-all">{postTitle}</p>
             </div>
         </div>
     )

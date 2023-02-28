@@ -2,6 +2,7 @@
 import "tailwindcss/tailwind.css";
 import axios from "axios"
 import AddPost from "./components/AddPost";
+import Post from "./components/Post";
 import { useQuery } from '@tanstack/react-query'
 
 //Fetch all posts
@@ -21,6 +22,9 @@ export default function Home() {
   return (
     <main>
       <AddPost />
+      {data?.map((post) => (
+        <Post key={post.id} name={post.user.name} avatar={post.user.image} />
+      ))}
     </main>
   )
 }
