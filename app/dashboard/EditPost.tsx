@@ -41,6 +41,10 @@ export default function EditPost({
       }
   )
 
+  const deletePost = () => {
+    mutate(id)
+  }
+
   return (
     <>
       <div className="bg-white my-8 p-8 rounded-md">
@@ -61,10 +65,16 @@ export default function EditPost({
           <p className="text-sm font-bold text-gray-700">
             {comments?.length} Comments
           </p>
-          <button className="text-sm font-bold text-red-700 hover:text-red-500">Delete</button>
+          <button
+            onClick={(e) => {
+              setToggle(true)
+            }}
+            className="text-sm font-bold text-red-700 hover:text-red-500"
+          >
+            Delete</button>
         </div>
       </div>
-      {toggle && <Toggle />}
+      {toggle && <Toggle deletePost={deletePost} setToggle={setToggle} />}
     </>
   )
 }
