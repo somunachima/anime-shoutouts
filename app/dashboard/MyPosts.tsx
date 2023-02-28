@@ -21,7 +21,7 @@ export default function MyPosts() {
       <div>
         {data?.Post?.map((post) => (
           <EditPost
-            comments={post.comments}
+            comments={post.Comment}
             key={post.id}
             name={data.name}
             avatar={data.image}
