@@ -8,7 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if(req.method ==="GET"){
+  if(req.method === "GET") {
     const session = await getServerSession(req, res, authOptions)
     if (!session) {
       return res.status(401).json({ message: "Please sign in" })
