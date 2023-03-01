@@ -4,7 +4,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
-export default function Post({ id, name, avatar, postTitle, comments }) {
+interface PropTypes {
+  id: string;
+  name: string;
+  avatar: string;
+  postTitle: string;
+  comments: Comment[];
+}
+
+export default function Post({ id, name, avatar, postTitle, comments }: PropTypes) {
 
     return (
       <motion.div

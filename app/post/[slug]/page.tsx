@@ -25,7 +25,7 @@ export default function PostDetail(url: URL) {
       queryKey: ["detail-post"],
       queryFn: () => fetchDetails(url.params.slug),
   })
-  if (isLoading) return "Loading comments...."
+  if (isLoading || !data) return "Loading comments...."
   console.log(data)
   return (
     <div>
