@@ -8,32 +8,23 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if(req.method === "GET") {
+  if(req.method === "DELETE") {
     const session = await getServerSession(req, res, authOptions)
     if (!session) {
       return res.status(401).json({ message: "Please sign in" })
     }
 
-    //Get Auth Users Posts
+    //Delete Posts
     try {
-        const data = await prisma.user.findUnique({
+        const postId = req.body
+        const result = await prisma.post.delete({
           where: {
-            email: session.user?.email,
-          },
-          include: {
-              Post: {
-                  orderBy: {
-                    createdAt: "desc",
-                  },
-                  include: {
-                    Comment: true,
-                  },
-              },
+            id: postId,
           },
         })
-        res.status(200).json(data)
+        res.status(200).json(result)
     } catch (err) {
-        res.status(403).json({err: "Error has occured whilst making a post"})
+        res.status(403).json({err: "Error has occured whilst deleting this post"})
     }
 
 
