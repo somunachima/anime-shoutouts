@@ -7,13 +7,17 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if(req.method === "DELETE") {
+  if(req.method === "POST") {
     const session = await getServerSession(req, res, authOptions)
     if (!session) {
       return res.status(401).json({ message: "Please sign in" })
     }
+    //Get User
+    const prismaUser = await prisma.user.findUnique({
+      where: { email: session.user.email },
+    })
 
-    //Delete Posts
+    //Add a comment
     try {
         const postId = req.body
         const result = await prisma.post.delete({
