@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios, { AxiosError } from "axios"
 import toast from "react-hot-toast"
 import { PostType } from "../types/Post"
+import { motion } from "framer-motion"
 
 type Comment = {
   postId?: string
@@ -50,27 +51,33 @@ export default function AddComment({ id }: PostProps) {
   }
 
   return (
-      <form onSubmit={submitComment} className="my-8">
-        <h3 className="font-bold text-gray-700">Add a comment</h3>
-        <div className="flex flex-col my-2">
-          <input
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            type="text"
-            name="title"
-            className="p-4 text-lg rounded-md my-2"
-          />
-        </div>
-        <div className="flex items-center gap-2">
-          <button
-            disabled={isDisabled}
-            className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-25 hover:bg-teal-700"
-            type="submit"
-          >
-            Add Comment ⚡️
-          </button>
-          <p className={`font-bold text-sm text-gray-400 ${title.length > 300 ? "text-red-700" : "text-gray-400"}`}>{`${title.length}/300`}</p>
-        </div>
-      </form>
+    <motion.div
+      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      transition={{ ease: "easeOut" }}
+    >
+        <form onSubmit={submitComment} className="my-8">
+          <h3 className="font-bold text-gray-700">Add a comment</h3>
+          <div className="flex flex-col my-2">
+            <input
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+              type="text"
+              name="title"
+              className="p-4 text-lg rounded-md my-2"
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              disabled={isDisabled}
+              className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-25 hover:bg-teal-700"
+              type="submit"
+            >
+              Add Comment ⚡️
+            </button>
+            <p className={`font-bold text-sm text-gray-400 ${title.length > 300 ? "text-red-700" : "text-gray-400"}`}>{`${title.length}/300`}</p>
+          </div>
+        </form>
+      </motion.div>
     )
 }
