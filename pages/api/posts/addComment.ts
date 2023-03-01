@@ -14,20 +14,27 @@ export default async function handler(
     }
     //Get User
     const prismaUser = await prisma.user.findUnique({
-      where: { email: session.user.email },
+      where: { email: session?.user?.email },
     })
 
     //Add a comment
     try {
-        const postId = req.body
-        const result = await prisma.post.delete({
-          where: {
-            id: postId,
+      const { title, postId } = req.body.data
+
+      if (!title.length) {
+        return res.status(401).json({ message: "Please enter a text" })
+      }
+
+      const result = await prisma.comment.create({
+          data: {
+            message: title,
+            userId: prismaUser?.id,
+            postId,
           },
-        })
-        res.status(200).json(result)
+      })
+      res.status(200).json(result)
     } catch (err) {
-        res.status(403).json({err: "Error has occured whilst deleting this post"})
+      res.status(403).json({err: "Error has occured whilst posting this comment"})
     }
 
 

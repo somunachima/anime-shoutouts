@@ -3,9 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Post({id, avatar, name, postTitle, comments}){
+export default function Post({ id, name, avatar, postTitle, comments }) {
 
-    return(
+    return (
         <div className="bg-white my-8 p-8 rounded-md">
             <div className="flex items-center gap-2">
                 <Image
@@ -22,10 +22,11 @@ export default function Post({id, avatar, name, postTitle, comments}){
             </div>
             <div className="flex gap-4 cursor-pointer items-center">
               <Link href={{
-                  pathname: `/post/${id}`
+                  pathname: `/post/${id}`,
                   }}
                 >
-                      <p className="text-sm font-bold text-gray-700">{comments?.length} Comments</p>
+                  <p className="text-sm font-bold text-gray-700">{comments?.length === 1 ? "1 Comment" : `${comments?.length} Comments`}
+                  </p>
               </Link>
             </div>
         </div>

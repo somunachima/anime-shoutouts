@@ -3,36 +3,38 @@ import { useState } from "react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios, { AxiosError } from "axios"
 import toast from "react-hot-toast"
-
-type PostProps = {
-  id?: string
-}
+import { PostType } from "../types/Post"
 
 type Comment = {
   postId?: string
   title: string
 }
 
-export default function AddComment({ id } : PostProps) {
+type PostProps = {
+  id?: string
+}
+
+export default function AddComment({ id }: PostProps) {
+  let commentToastId: string
   const [title, setTitle] = useState("")
   const [isDisabled, setIsDisabled] = useState(false)
-  const queryClient = useQueryClient()
-  let commentToastId: string
 
-  const {mutate} = useMutation(
-      async (data: Comment) => axios.post("/api/posts/addComment", {data}), {
+  const queryClient = useQueryClient()
+  const { mutate } = useMutation(
+      async (data: Comment) => {
+        return axios.post("/api/posts/addComment", {data})
+      },
+      {
         onSuccess: (data) => {
+          queryClient.invalidateQueries(["detail-post"])
           setTitle("")
           setIsDisabled(false)
           toast.success("Comment has been made 🔥", {id: commentToastId})
-          queryClient.invalidateQueries(["comments"])
         },
         onError: (error) => {
           setIsDisabled(false)
           if (error instanceof AxiosError) {
-            toast.error(error?.response?.data.message, {id: commentToastId,
-            })
-            mutate({ title, postId: id })
+            toast.error(error?.response?.data.message, {id: commentToastId})
           }
         },
       }
@@ -41,11 +43,14 @@ export default function AddComment({ id } : PostProps) {
   const submitComment = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsDisabled(true)
-    commentToastId = toast.loading("Adding your comment....")
+    commentToastId = toast.loading("Adding your comment....", {
+      id: commentToastId,
+    })
+    mutate({ title, postId: id })
   }
 
   return (
-      <form className="my-8">
+      <form onSubmit={submitComment} className="my-8">
         <h3 className="font-bold text-gray-700">Add a comment</h3>
         <div className="flex flex-col my-2">
           <input
