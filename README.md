@@ -1,39 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Anime Shoutout
+### Website: https://anime-shoutouts.vercel.app/
 
-## Getting Started
+## About
+A Next.js app for anime fans like me to recommend, discover and discuss anime shows. Fans can log onto the site using Google Cloud Storage authentication.
 
-First, run the development server:
+## Purpose
+This aim of this project was to get start on learning TypeScript with React.js. I was also able to implement some animations using Framer Motion which is what I learnt from building the filter animation project. This project also taught me how to build a Next.js app with multiple pages and models, using PostgreSQL and Google Cloud Storage authentication. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Challenges
+I initially found it quite difficult to wrap my head around the use of PropTypes in React.js but it proved extremely beneficial learning this skill when resolving errors.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Next Steps
+While this was also a great opportunity for me to use Tailwind to create a simple design, I would like to add more colour and interactivity to the app. In future, I also plan to add two more models, heart and save, so that users can like and save posts to refer back to at a later date, giving them a place to store a list of anime recommendations. And to make it more fun I want to add a Spotify anime playlist to play some anime themed music!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# anime-shoutouts
