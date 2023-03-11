@@ -12,3 +12,6 @@ I initially found it quite difficult to wrap my head around the use of PropTypes
 ## Next Steps
 While this was also a great opportunity for me to use Tailwind to create a simple design, I would like to add more colour and interactivity to the app. In future, I also plan to add two more models, heart and save, so that users can like and save posts to refer back to at a later date, giving them a place to store a list of anime recommendations. And to make it more fun I want to add a Spotify anime playlist to play some anime themed music!
 
+<img width="930" alt="Screenshot 2023-03-01 at 12 48 26" src="https://user-images.githubusercontent.com/114405652/224510356-6d50b4ea-0b9e-48f1-87d7-8d68dda138a3.png">
+
+<img width="872" alt="Screenshot 2023-03-01 at 12 48 09" src="https://user-images.githubusercontent.com/114405652/224510366-301824e9-cc2c-4f72-b080-ea48d9355806.png">
