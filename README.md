@@ -17,3 +17,5 @@ While this was also a great opportunity for me to use Tailwind to create a simpl
 <img width="930" alt="Screenshot 2023-03-01 at 12 48 26" src="https://user-images.githubusercontent.com/114405652/224510356-6d50b4ea-0b9e-48f1-87d7-8d68dda138a3.png">
 
 <img width="872" alt="Screenshot 2023-03-01 at 12 48 09" src="https://user-images.githubusercontent.com/114405652/224510366-301824e9-cc2c-4f72-b080-ea48d9355806.png">
+
+<img width="1021" alt="Screenshot 2023-03-11 at 21 42 44" src="https://user-images.githubusercontent.com/114405652/224512737-be688dfa-ed7b-4263-bdf5-7cdcd36d6b70.png">
