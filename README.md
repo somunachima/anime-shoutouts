@@ -1,5 +1,4 @@
 # Anime Shoutout
-### Website: https://anime-shoutouts.vercel.app/
 
 ## About
 A Next.js app for anime fans like me to recommend, discover and discuss anime shows. Fans can log onto the site using Google Cloud Storage authentication.
